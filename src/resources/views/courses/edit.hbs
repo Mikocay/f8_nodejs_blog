@@ -1,0 +1,55 @@
+<div class='mt-4'>
+
+  <h3>Edit course</h3>
+
+  <form
+    method='post'
+    action='/courses/{{course._id}}?_method=put'
+  >
+    {{! Name }}
+    <div class='form-group'>
+      <label for='name'>Course Name:</label>
+      <input
+        type='text'
+        class='form-control'
+        id='name'
+        name='name'
+        value='{{course.name}}'
+      />
+    </div>
+
+    {{! Description }}
+    <div class='form-group'>
+      <label for='description'>Description:</label>
+      <input
+        type='text'
+        class='form-control'
+        id='description'
+        name='description'
+        value='{{course.description}}'
+      />
+    </div>
+
+    {{! Image }}
+    <div class='form-group'>
+      <label for='image'>Image:</label>
+      <img
+        class='edit-course-img'
+        src='{{course.image}}'
+        alt=''
+      />
+      <input
+        type='text'
+        class='form-control'
+        id='image'
+        name='image'
+        value='{{course.image}}'
+      />
+    </div>
+
+    <button
+      type='submit'
+      class='btn btn-primary'
+    >Submit</button>
+  </form>
+</div>

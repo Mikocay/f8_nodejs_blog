@@ -1,0 +1,87 @@
+<div>
+  <table class='table mt-4'>
+    <thead>
+      <tr>
+        <th scope='col'>No</th>
+        <th scope='col'>Course</th>
+        <th scope='col'>Name</th>
+        <th scope='col' colspan='2'>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each courses as |course index|}}
+        <tr>
+          <th scope='row'>{{incrementIndex index}}</th>
+          <td><img
+              class='update-course-img'
+              src='{{course.image}}'
+              alt=''
+            /></td>
+          <td
+            class='update-course-name'
+          >{{course.name}}</td>
+          <td
+            class='update-course-description'
+          >{{course.description}}</td>
+          <td>
+            <a
+              href='/courses/{{course._id}}/edit'
+              class='btn btn-link'
+            >Edit</a>
+            <!-- Button trigger modal -->
+            <a
+              href='/courses/{{course._id}}/delete'
+              class='btn btn-link'
+              data-toggle='modal'
+              data-target='#exampleModal'
+            >Delete</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+{{! Confirm Delete }}
+
+<!-- Modal -->
+<div
+  class='modal fade'
+  id='exampleModal'
+  tabindex='-1'
+  aria-labelledby='exampleModalLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5
+          class='modal-title'
+          id='exampleModalLabel'
+        >Delete Course</h5>
+        <button
+          type='button'
+          class='close'
+          data-dismiss='modal'
+          aria-label='Close'
+        >
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>
+      <div class='modal-body'>
+        Do you want to delete this course?
+      </div>
+      <div class='modal-footer'>
+        <button
+          type='button'
+          class='btn btn-primary'
+          data-dismiss='modal'
+        >Close</button>
+        <button
+          type='button'
+          class='btn btn-danger'
+        >Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
